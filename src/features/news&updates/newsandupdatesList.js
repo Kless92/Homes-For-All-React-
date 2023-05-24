@@ -1,10 +1,11 @@
 import {Col, Row} from 'reactstrap';
 import NewsandupdatesCard from './newsandupdatesCard';
 import { selectAllNews } from "./newsandupdatesSlice";
+import { useSelector } from 'react-redux';
 
-const newsandupdatesList = () => {
-    const news = selectAllNews();
-
+const NewsandupdatesList = () => {
+    const news = useSelector(selectAllNews);
+    console.log('news: ', news);
     return(
         <Row className='ms-auto'>
             {news.map((news) => {
@@ -17,4 +18,4 @@ const newsandupdatesList = () => {
         </Row>
     );
 };
-export default newsandupdatesList
+export default NewsandupdatesList

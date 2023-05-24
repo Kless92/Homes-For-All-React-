@@ -1,13 +1,25 @@
 import {FRONTPAGE} from '../../app/shared/FRONTPAGE'
+import { createSlice } from '@reduxjs/toolkit';
 
-export const selectAllFrontPages = () => {
-    return FRONTPAGE;
+const initialState = {
+    frontpageArray: FRONTPAGE
 };
 
-export const selectFrontPageById = (id) => {
-    return FRONTPAGE.find((news) => news.id === id);
+const displaySlice = createSlice({
+    name: 'frontpage',
+    initialState
+});
+
+export const frontpageReducer = displaySlice.reducer;
+
+export const selectAllFrontPages = (state) => {
+    return state.frontpage.frontpageArray;
 };
 
-export const selectFeaturedFrontPage = () => {
-    return FRONTPAGE.find((news) => news.featured);
+export const selectFrontPageById = (id) => (state) => {
+    return state.frontpage.frontpageArray.find((news) => news.id === id);
+};
+
+export const selectFeaturedFrontPage = (state) => {
+    return state.frontpage.frontpageArray.find((news) => news.featured);
 };

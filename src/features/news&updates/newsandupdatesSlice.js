@@ -1,14 +1,26 @@
 import {NEWSANDUPDATES} from '../../app/shared/NEWSANDUPDATES';
+import { createSlice } from '@reduxjs/toolkit';
 
-export const selectAllNews = () => {
-    return NEWSANDUPDATES;
+const initialState = {
+    newsandupdatesArray: NEWSANDUPDATES
 };
 
-export const selectNewsById = (id) => {
-    return NEWSANDUPDATES.find((news) => news.id === parseInt(id));
+const newsandupdatesSlice = createSlice({
+    name: 'newsandupdates',
+    initialState
+});
+
+export const newsandupdatesReducer = newsandupdatesSlice.reducer;
+
+export const selectAllNews = (state) => {
+    return state.newsandupdates.newsandupdatesArray;
 };
 
-export const selectFeaturedNews = () => {
-    return NEWSANDUPDATES.find((news) => news.featured);
+export const selectNewsById = (id) => (state) => {
+    return state.newsandupdates.newsandupdatesArray.find((news) => news.id === parseInt(id));
+};
+
+export const selectFeaturedNews = (state) => {
+    return state.newsandupdates.newsandupdatesArray.find((news) => news.featured);
 };
 

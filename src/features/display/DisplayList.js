@@ -2,8 +2,11 @@ import {Col, Row} from 'reactstrap';
 import DisplayCard from './DisplayCard';
 import DisplayCardText from './DisplayCardText';
 import { selectFeaturedFrontPage } from './displaySlice';
+import { useSelector } from 'react-redux';
+
 const DisplayList = () => {
-    const item = selectFeaturedFrontPage();
+    const item = useSelector(selectFeaturedFrontPage);
+    console.log('fronstpage: ', item);
     return (
         <Row>
             <Col md className='m-1' >

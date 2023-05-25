@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### 'json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2000'
+Open a terminal in json-server folder and enter code above to run server
+This server contin images for website and save posted data from
+Donation and Voulinteer 

@@ -1,7 +1,7 @@
 import {Card, CardTitle, CardText, CardBody, Col} from 'reactstrap';
 
-const newsandupdatesDetail = ({news}) => {
-    const {name, date, discription} = news;
+const newsandupdatesDetail = ({newsandupdates}) => {
+    const {name, date, discription} = newsandupdates;
 
     return(
         <Col md='12' className='m-4'>

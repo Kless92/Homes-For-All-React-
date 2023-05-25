@@ -1,7 +1,7 @@
 import {Card, CardText, CardBody, CardTitle} from 'reactstrap';
 
-const DisplayCardText = ({item}) => {
-    const {name, date, discription}=item;
+const DisplayCardText = ({frontpage}) => {
+    const {name, date, discription}=frontpage;
 
     return(
     <div className='table'>

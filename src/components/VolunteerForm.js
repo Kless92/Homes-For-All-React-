@@ -1,9 +1,29 @@
 import {Button, Label, Col, Row, FormGroup} from 'reactstrap';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import {validateVolunteerForm} from '../utils/validateVolunteerForm';
+import { useDispatch } from "react-redux";
+import { postData } from '../features/Voll&Don/volunteerSlice';
 
 const VolunteerFrom = () => {
+    const dispatch = useDispatch();
     const handleSubmit=(values, {resetForm}) => {
+        const volunteerData={
+            firstName: values.firstName,
+            lastName: values.lastName,
+            phoneNum: values.phoneNum,
+            email: values.email,
+            contactType: values.contactType,
+            refOneName: values.refOneName,
+            refOneNum: values.refOneNum,
+            refOneEmail: values.refOneEmail,
+            refTwoName: values.refTwoName,
+            refTwoNum: values.refTwoNum,
+            refTwoEmail: values.refTwoEmail,
+            refThrName: values.refThrName,
+            refThrNum: values.refThrNum,
+            refThrEmail: values.refThrEmail,
+        };
+        dispatch(postData(volunteerData));
         console.log('form vlaues:', values);
         console.log('in JSON format:', JSON.stringify(values));
         resetForm();
@@ -145,19 +165,6 @@ const VolunteerFrom = () => {
                     </Row>
 
                 </FormGroup>
-                
-                <FormGroup row>
-                        <Col md={{size:10}}>
-                            <Label md='4'>
-                                Click to upload your resume.
-                            </Label>
-                            <Button name='resume' type='button' color='secondary'>
-                                Resume
-                            </Button>
-
-                        </Col>
-                    </FormGroup>
-                
                     
                 <FormGroup row>
                     <Label md='4'>

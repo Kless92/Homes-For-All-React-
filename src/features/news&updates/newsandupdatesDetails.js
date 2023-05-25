@@ -1,7 +1,7 @@
 import {Card, CardImg, Col} from 'reactstrap';
 
-const newsandupdatesDetail = ({news}) => {
-    const {image, name} = news;
+const newsandupdatesDetail = ({newsandupdates}) => {
+    const {image, name} = newsandupdates;
 
     return(
         

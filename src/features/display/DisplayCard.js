@@ -1,7 +1,7 @@
 import {Card, CardImg} from 'reactstrap';
 
-const DisplayCard = ({item}) => {
-    const {image, name}=item;
+const DisplayCard = ({frontpage}) => {
+    const {image, name}=frontpage;
 
     return(
     <div className='table'>

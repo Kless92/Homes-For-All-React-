@@ -1,9 +1,21 @@
 import {Button, Label, Col, FormGroup} from 'reactstrap';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import {validateDonationsForm} from '../utils/validateDonationsForm';
+import { useDispatch } from "react-redux";
+import { postData } from '../features/Voll&Don/dataSlice';
 
 const DonationsForm = () => {
+    const dispatch = useDispatch();
     const handleSubmit=(values, {resetForm}) => {
+        const dontationData={
+            firstName: values.firstName,
+            lastName: values.lastName,
+            phoneNum: values.phoneNum,
+            email: values.email,
+            amount: values.amount,
+            sub: values.sub
+        };
+        dispatch(postData(dontationData));
         console.log('form vlaues:', values);
         console.log('in JSON format:', JSON.stringify(values));
         resetForm();
@@ -25,6 +37,7 @@ const DonationsForm = () => {
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
+
                 <FormGroup row>
                 <Label htmlFor='lastName' md='2'>
                         Last Name
@@ -36,6 +49,7 @@ const DonationsForm = () => {
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
+
                 <FormGroup row>
                     <Label htmlFor='phoneNum' md='2'>
                         Phone Number
@@ -47,6 +61,7 @@ const DonationsForm = () => {
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
+
                 <FormGroup row>
                     <Label htmlFor='email' md='2'>
                         Email
@@ -58,6 +73,7 @@ const DonationsForm = () => {
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
+
                 <FormGroup row>
                     <Label htmlFor='amount' md='2'>
                         How much whould you like to donate?
@@ -69,6 +85,7 @@ const DonationsForm = () => {
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
+
                 <FormGroup row>
                     <Label md='2'>
                         Would you like to donate monthly or once?
@@ -80,6 +97,7 @@ const DonationsForm = () => {
                         </Field>
                     </Col>
                 </FormGroup>
+                
                 <FormGroup row>
                     <Col md={{size:10, offset:2}}>
                         <Button type='submit' color='primary'>

@@ -1,8 +1,8 @@
 import {Card, CardImg, CardImgOverlay, CardTitle} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-const newsandupdatesCard = ({news}) => {
-    const {id, image, name} = news;
+const newsandupdatesCard = ({newsandupdates}) => {
+    const {id, image, name} = newsandupdates;
     return(
         <Link to={`${id}`}>
             <Card>
